@@ -1,15 +1,15 @@
 from strawberry_django_plus import gql
 from typing import List
-import models
+from .models import Artist, Album, Song
 
 
-@gql.django.type(models.Artist)
+@gql.django.type(Artist)
 class ArtistType:
     name: gql.auto
     albums: 'List[AlbumType]'
 
 
-@gql.django.type(models.Album)
+@gql.django.type(Album)
 class AlbumType:
     name: gql.auto
     release_date: gql.auto
@@ -17,42 +17,42 @@ class AlbumType:
     songs: 'List[SongType]'
 
 
-@gql.django.type(models.Song)
+@gql.django.type(Song)
 class SongType:
     name: gql.auto
     duration: gql.auto
     album_type: 'AlbumType'
 
 
-@gql.django.input(models.Artist)
+@gql.django.input(Artist)
 class ArtistInput:
     name: gql.auto
 
 
-@gql.django.input(models.Album)
+@gql.django.input(Album)
 class AlbumInput:
     name: gql.auto
     release_date: gql.auto
 
 
-@gql.django.input(models.Song)
+@gql.django.input(Song)
 class SongInput:
     name: gql.auto
     duration: gql.auto
 
 
-@gql.django.partial(models.Artist)
+@gql.django.partial(Artist)
 class ArtistInputPartial(gql.NodeInput):
     name: gql.auto
 
 
-@gql.django.partial(models.Album)
+@gql.django.partial(Album)
 class AlbumInputPartial(gql.NodeInput):
     name: gql.auto
     release_date: gql.auto
 
 
-@gql.django.partial(models.Song)
+@gql.django.partial(Song)
 class SongInputPartial(gql.NodeInput):
     name: gql.auto
     duration: gql.auto

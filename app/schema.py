@@ -1,12 +1,11 @@
 from .types import ArtistType, ArtistInput, ArtistInputPartial, SongType
-from .models import Artist
 from typing import List
 from strawberry_django_plus import gql
 
 
 @gql.type
 class Query:
-    artist: Artist = gql.django.field()
+    artist: ArtistType = gql.django.field()
     songs: List[SongType] = gql.django.field()
 
 
