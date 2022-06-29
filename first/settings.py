@@ -1,11 +1,13 @@
-
 from pathlib import Path
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-SECRET_KEY = 'django-insecure-6eqvf=orxm9gnjtz#622k5en@&=lw7iam=%eavuzhc!x9*15p5'
+SECRET_KEY = 'django-insecure-gzvo&lhl^$b=af8nv@@l8^_jt0lopyvjft9slephb1538enf&5'
 DEBUG = True
 ALLOWED_HOSTS = []
+ROOT_URLCONF = 'first.urls'
+
+# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.auth',
@@ -14,7 +16,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.postgres',
-    'first',
+    'app',
+    'app.apps',
     'strawberry.django',
 ]
 
@@ -24,8 +27,6 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
 ]
-
-ROOT_URLCONF = 'first.urls'
 
 TEMPLATES = [
     {
@@ -37,6 +38,7 @@ TEMPLATES = [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
             ],
         },
     },
@@ -68,11 +70,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
-
+STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'

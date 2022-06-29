@@ -10,6 +10,7 @@ Django = "^4.0.5"
 strawberry-graphql-django = "^0.3.1"
 strawberry-graphql = "^0.114.5"
 psycopg2-binary = "^2.9.3"
+strawberry-django-plus = "^1.15.0"
 
 [tool.poetry.dev-dependencies]
 
