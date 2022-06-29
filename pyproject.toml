@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "django-strawbarry"
+version = "0.1.0"
+description = ""
+authors = ["MarionetkaX <sergey07061999@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Django = "^4.0.5"
+strawberry-graphql-django = "^0.3.1"
+strawberry-graphql = "^0.114.5"
+psycopg2-binary = "^2.9.3"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
