@@ -8,6 +8,7 @@ from django.db.models.query import QuerySet
 class ArtistFilter:
     name: gql.auto
     albums: gql.auto
+    totalCount: Optional[str]
     # search: Optional[str]
     #
     # def filter_search(self, queryset: QuerySet[Artist]):
