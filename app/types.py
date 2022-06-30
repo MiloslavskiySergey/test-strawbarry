@@ -8,6 +8,10 @@ from django.db.models.query import QuerySet
 class ArtistFilter:
     name: gql.auto
     albums: gql.auto
+    # search: Optional[str]
+    #
+    # def filter_search(self, queryset: QuerySet[Artist]):
+    #     return queryset.filter(name__contains=self.search)
 
 
 @gql.django.order(Artist)
