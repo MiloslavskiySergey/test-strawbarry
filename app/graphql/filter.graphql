@@ -1,0 +1,8 @@
+query {
+  artistFilter (order: {
+    name: DESC
+  }) {
+    id
+    name
+  }
+}

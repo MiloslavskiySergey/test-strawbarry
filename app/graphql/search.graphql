@@ -1,0 +1,10 @@
+query {
+  artistFilter (filters: {
+  name: {
+    contains: "7"
+  }
+  }) {
+    id
+    name
+  }
+}

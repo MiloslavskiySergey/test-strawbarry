@@ -6,6 +6,8 @@ from strawberry_django_plus import gql
 @gql.type
 class Query:
     artist: ArtistType = gql.django.field()
+    artist_filter: List[ArtistType] = gql.django.field()
+    artists_pagination: gql.relay.Connection[ArtistType] = gql.relay.connection()
     songs: List[SongType] = gql.django.field()
 
 

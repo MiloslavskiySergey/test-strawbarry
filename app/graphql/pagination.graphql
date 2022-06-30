@@ -1,0 +1,11 @@
+query {
+  artistsPagination (first: 2, after: "YXJyYXljb25uZWN0aW9uOjE=") {
+	edges {
+    node {
+      id
+      name
+    }
+    cursor
+  }
+  }
+}

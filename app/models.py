@@ -8,7 +8,7 @@ class Artist(models.Model):
 class Album(models.Model):
     name = models.CharField(max_length=20)
     release_date = models.DateTimeField()
-    artist = models.ForeignKey("Artist", related_name="albuns", on_delete=models.CASCADE)
+    artist = models.ForeignKey("Artist", related_name="albums", on_delete=models.CASCADE)
 
 
 class Song(models.Model):
