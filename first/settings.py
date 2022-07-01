@@ -5,10 +5,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-gzvo&lhl^$b=af8nv@@l8^_jt0lopyvjft9slephb1538enf&5'
 DEBUG = True
 ALLOWED_HOSTS = []
+AUTH_USER_MODEL = 'app.User'
 ROOT_URLCONF = 'first.urls'
 
-# Application definition
-
+# List of application
 INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -19,15 +19,25 @@ INSTALLED_APPS = [
     'app',
     'app.apps',
     'strawberry.django',
+    'oauth2_provider'
 ]
 
+# List of authentication backends
+AUTHENTICATION_BACKENDS = [
+    'oauth2_provider.backends.OAuth2Backend',
+    'django.contrib.auth.backends.ModelBackend'
+]
+
+# List of middleware
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'oauth2_provider.middleware.OAuth2TokenMiddleware'
 ]
 
+# List of templates
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -44,6 +54,9 @@ TEMPLATES = [
     },
 ]
 
+
+
+# Settings database
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
