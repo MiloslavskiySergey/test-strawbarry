@@ -264,7 +264,7 @@ python-versions = ">=3.5"
 
 [[package]]
 name = "strawberry-django-plus"
-version = "1.15.0"
+version = "1.16.0"
 description = "Enhanced Strawberry GraphQL integration with Django"
 category = "main"
 optional = false
@@ -272,7 +272,7 @@ python-versions = ">=3.8,<4.0"
 
 [package.dependencies]
 django = ">=3.2"
-strawberry-graphql = ">=0.114.0"
+strawberry-graphql = ">=0.115.0"
 strawberry-graphql-django = ">=0.3"
 typing-extensions = ">=4.1.0"
 
@@ -282,7 +282,7 @@ enum = ["django-choices-field (>=2.0)"]
 
 [[package]]
 name = "strawberry-graphql"
-version = "0.114.5"
+version = "0.116.2"
 description = "A library for creating GraphQL APIs"
 category = "main"
 optional = false
@@ -299,7 +299,7 @@ typing_extensions = ">=3.7.4,<5.0.0"
 
 [package.extras]
 asgi = ["starlette (>=0.13.6)"]
-debug-server = ["starlette (>=0.13.6)", "uvicorn (>=0.11.6,<0.18.0)"]
+debug-server = ["starlette (>=0.13.6)", "uvicorn (>=0.11.6,<0.19.0)"]
 django = ["Django (>=3.2)", "asgiref (>=3.2,<4.0)"]
 flask = ["flask (>=1.1)"]
 opentelemetry = ["opentelemetry-api (<2)", "opentelemetry-sdk (<2)"]
@@ -323,7 +323,7 @@ strawberry-graphql = ">=0.109.0"
 
 [[package]]
 name = "typing-extensions"
-version = "4.2.0"
+version = "4.3.0"
 description = "Backported and Experimental Type Hints for Python 3.7+"
 category = "main"
 optional = false
@@ -361,7 +361,7 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "3be3f603331142f4be46212805b1b53353a5b0d4c7ae9609aa54279c6573b77f"
+content-hash = "843f8da58d02d3abe1d3d42a582e774aace71cef718cde45405272c849474497"
 
 [metadata.files]
 asgiref = [
@@ -594,20 +594,20 @@ sqlparse = [
     {file = "sqlparse-0.4.2.tar.gz", hash = "sha256:0c00730c74263a94e5a9919ade150dfc3b19c574389985446148402998287dae"},
 ]
 strawberry-django-plus = [
-    {file = "strawberry-django-plus-1.15.0.tar.gz", hash = "sha256:b79ca332982a07ac3af74400b0f22e258befc4cd69ea1d9d003b5aba10726cb7"},
-    {file = "strawberry_django_plus-1.15.0-py3-none-any.whl", hash = "sha256:131812ed719cb185ab180467993ce50bf56024a46ffb4e2fb996df7c73195bfd"},
+    {file = "strawberry-django-plus-1.16.0.tar.gz", hash = "sha256:a7e44b6b2abb21e09d09780b15eb7551ac4f1dd00d612189cca0d35bddad8778"},
+    {file = "strawberry_django_plus-1.16.0-py3-none-any.whl", hash = "sha256:519836f2d3d10ea458646a0f7ecbcc6519ed3a35ef9321c1f5d77360c673834f"},
 ]
 strawberry-graphql = [
-    {file = "strawberry-graphql-0.114.5.tar.gz", hash = "sha256:b6e007281cf29a66eeba66a512744853d8aa53b4ca2525befb6f350bb7b24df6"},
-    {file = "strawberry_graphql-0.114.5-py3-none-any.whl", hash = "sha256:3f65de6c16ec3630cf2ad319040da71b91bec0076dd7d4e510d5e855ff785ff6"},
+    {file = "strawberry-graphql-0.116.2.tar.gz", hash = "sha256:d0d1db73a71df1fb1f95fe061ad526394f0b028fa26cede7461c82388f3ef3e5"},
+    {file = "strawberry_graphql-0.116.2-py3-none-any.whl", hash = "sha256:9f972d3789f4ce61aeb9c76b12809b6969055636c95df3641809b420a9b4d2be"},
 ]
 strawberry-graphql-django = [
     {file = "strawberry-graphql-django-0.3.1.tar.gz", hash = "sha256:d66dd816211b5e4a60920a9e0697c1df63d8e14edf02ab04e1c1b696d19eda33"},
     {file = "strawberry_graphql_django-0.3.1-py3-none-any.whl", hash = "sha256:f2c55da70d02cb67ee225995798a4b5f26b802228a4fa8fb931eb55e50c775dd"},
 ]
 typing-extensions = [
-    {file = "typing_extensions-4.2.0-py3-none-any.whl", hash = "sha256:6657594ee297170d19f67d55c05852a874e7eb634f4f753dbd667855e07c1708"},
-    {file = "typing_extensions-4.2.0.tar.gz", hash = "sha256:f1c24655a0da0d1b67f07e17a5e6b2a105894e6824b92096378bb3668ef02376"},
+    {file = "typing_extensions-4.3.0-py3-none-any.whl", hash = "sha256:25642c956049920a5aa49edcdd6ab1e06d7e5d467fc00e0506c44ac86fbfca02"},
+    {file = "typing_extensions-4.3.0.tar.gz", hash = "sha256:e6d2677a32f47fc7eb2795db1dd15c1f34eff616bcaf2cfb5e997f854fa1c4a6"},
 ]
 tzdata = [
     {file = "tzdata-2022.1-py2.py3-none-any.whl", hash = "sha256:238e70234214138ed7b4e8a0fab0e5e13872edab3be586ab8198c407620e2ab9"},

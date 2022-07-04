@@ -1,7 +1,36 @@
 from strawberry_django_plus import gql
 from typing import List, Optional
-from .models import Artist, Album, Song
+from .models import Artist, Album, Song, User
 from django.db.models.query import QuerySet
+from django.contrib.auth import get_user_model
+from django.contrib.auth.models import AbstractUser
+from strawberry.types.info import Info
+from strawberry_django_plus.permissions import (
+    HasObjPerm,
+    HasPerm,
+    IsAuthenticated,
+    IsStaff,
+    IsSuperuser,
+)
+
+
+@gql.django.type(User)
+class UserType:
+    username: gql.auto
+    email: gql.auto
+    is_active: gql.auto
+    is_superuser: gql.auto
+    is_staff: gql.auto
+
+
+@gql.django.input(User)
+class UserInput:
+    username: gql.auto
+    email: gql.auto
+    password: gql.auto
+    is_active: gql.auto
+    is_superuser: gql.auto
+    is_staff: gql.auto
 
 
 @gql.django.filter(Artist, lookups=True)
@@ -48,7 +77,7 @@ class AlbumType:
     name: gql.auto
     release_date: gql.auto
     artist: ArtistType
-    songs: 'List[SongType]'
+    songs: 'List[SongType]' = gql.django.field(directives=[IsAuthenticated()])
 
 
 @gql.django.input(Album)

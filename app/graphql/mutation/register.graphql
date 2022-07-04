@@ -1,0 +1,17 @@
+mutation {
+  register (data: {
+    username: "mark"
+    email: "mark@mark.ru"
+    password: "Reguon67"
+    isActive: true
+    isSuperuser: true
+    isStaff: true
+  })
+  {
+    username
+    email
+    isActive
+    isSuperuser
+    isStaff
+  }
+}

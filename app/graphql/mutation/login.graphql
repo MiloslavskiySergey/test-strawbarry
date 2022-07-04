@@ -1,0 +1,9 @@
+mutation {
+  login (password: "Reguon67", username: "mark") {
+    username
+    email
+    isActive
+    isSuperuser
+    isStaff
+  }
+}
