@@ -1,6 +1,6 @@
 from strawberry_django_plus import gql
 from typing import List, Optional
-from .models import Artist, Album, Song, User
+from .models import Artist, Album, Song
 from django.db.models.query import QuerySet
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import AbstractUser
@@ -13,8 +13,10 @@ from strawberry_django_plus.permissions import (
     IsSuperuser,
 )
 
+from django.contrib.auth import get_user_model
 
-@gql.django.type(User)
+
+@gql.django.type(get_user_model())
 class UserType:
     username: gql.auto
     email: gql.auto
@@ -23,7 +25,7 @@ class UserType:
     is_staff: gql.auto
 
 
-@gql.django.input(User)
+@gql.django.input(get_user_model())
 class UserInput:
     username: gql.auto
     email: gql.auto
@@ -47,13 +49,13 @@ class ArtistFilter:
 @gql.django.order(Artist)
 class ArtistOrder:
     name: gql.auto
-    albums: 'Optional[AlbumOrder]'
+    albums: 'AlbumOrder | None'
 
 
 @gql.django.type(Artist, filters=ArtistFilter, order=ArtistOrder)
 class ArtistType(gql.relay.Node):
     name: gql.auto
-    albums: 'List[AlbumType]'
+    albums: 'list[AlbumType] | None'
 
 
 @gql.django.input(Artist)
@@ -76,8 +78,8 @@ class AlbumOrder:
 class AlbumType:
     name: gql.auto
     release_date: gql.auto
-    artist: ArtistType
-    songs: 'List[SongType]' = gql.django.field(directives=[IsAuthenticated()])
+    artist: ArtistType | None
+    songs: 'list[SongType] | None' = gql.django.field(directives=[IsAuthenticated()])
 
 
 @gql.django.input(Album)
@@ -96,7 +98,7 @@ class AlbumInputPartial(gql.NodeInput):
 class SongType:
     name: gql.auto
     duration: gql.auto
-    album_type: 'AlbumType'
+    album_type: 'AlbumType | None'
 
 
 @gql.django.input(Song)
