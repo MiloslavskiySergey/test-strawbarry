@@ -1,11 +1,12 @@
 from pathlib import Path
+from datetime import timedelta
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-gzvo&lhl^$b=af8nv@@l8^_jt0lopyvjft9slephb1538enf&5'
 DEBUG = True
 ALLOWED_HOSTS = []
-# AUTH_USER_MODEL = 'app.User'
+AUTH_USER_MODEL = 'app.CustomUser'
 ROOT_URLCONF = 'first.urls'
 
 # Settings cors
@@ -20,10 +21,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.postgres',
     'app',
-    'app.apps',
     'strawberry.django',
     'oauth2_provider',
     'corsheaders',
+    'gqlauth',
+    'strawberry_django_jwt.refresh_token'
 ]
 
 # List of middleware
@@ -39,8 +41,18 @@ MIDDLEWARE = [
 # List of authentication backends
 AUTHENTICATION_BACKENDS = [
     'oauth2_provider.backends.OAuth2Backend',
-    'django.contrib.auth.backends.ModelBackend'
+    'django.contrib.auth.backends.ModelBackend',
+    'gqlauth.backends.GraphQLAuthBackend',
+    'strawberry_django_jwt.backends.JSONWebTokenBackend'
 ]
+
+# Settings JWT
+GRAPHQL_JWT = {
+    "JWT_VERIFY_EXPIRATION": True,
+    "JWT_EXPIRATION_DELTA": timedelta(minutes=5),
+    "JWT_REFRESH_EXPIRATION_DELTA": timedelta(days=7),
+    "JWT_LONG_RUNNING_REFRESH_TOKEN": True,
+}
 
 # Settings OAuth2
 OAUTH2_PROVIDER = {

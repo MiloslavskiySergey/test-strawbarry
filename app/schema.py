@@ -5,8 +5,7 @@ from .types import ArtistType,\
     UserType,\
     UserInput,\
     ArtistFilter,\
-    ArtistOrder,\
-    AlbumType
+    ArtistOrder
 from typing import List, Optional
 from strawberry_django_plus import gql
 from strawberry_django.auth import login, logout, current_user, register
